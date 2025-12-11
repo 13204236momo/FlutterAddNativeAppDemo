@@ -1,0 +1,2 @@
+# FlutterAddNativeAppDemo
+在原生的Android项目中添加Flutter模块
