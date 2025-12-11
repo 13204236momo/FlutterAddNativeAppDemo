@@ -30,8 +30,9 @@ class MyApp : Application() {
         flutterEngine.dartExecutor.executeDartEntrypoint(
             DartExecutor.DartEntrypoint.createDefault()
         )
-
-        // 4. 将引擎缓存到FlutterEngineCache，供后续Activity绑定
+        //4. 绑定MethodChannel
+        FlutterNativeProtocolManager.bindMethodChannel(flutterEngine)
+        // 5. 将引擎缓存到FlutterEngineCache，供后续Activity绑定
         FlutterEngineCache
             .getInstance()
             .put(FLUTTER_ENGINE_ID, flutterEngine)
