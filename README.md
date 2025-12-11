@@ -55,7 +55,7 @@ vb.btnFlutter.setOnClickListener {
 
 错误1：
 
-![错误1](.\images\错误1.png)
+![https://github.com/13204236momo/FlutterAddNativeAppDemo/blob/main/images/%E9%94%99%E8%AF%AF1.png?raw=true](https://github.com/13204236momo/FlutterAddNativeAppDemo/blob/main/images/%E9%94%99%E8%AF%AF1.png?raw=true)
 
 修改已有android工程根目录中settings.gradle.kts中的代码
 
@@ -70,7 +70,7 @@ dependencyResolutionManagement {
 
 错误2：
 
-![错误2](.\images\错误2.png)
+![](https://github.com/13204236momo/FlutterAddNativeAppDemo/blob/main/images/%E9%94%99%E8%AF%AF2.png?raw=true)
 
 找不到一些代码包，在已有android工程根目录中settings.gradle.kts中的添加：
 
