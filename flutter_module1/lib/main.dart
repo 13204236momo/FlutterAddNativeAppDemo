@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_module1/protocol/native_bridge.dart';
-
+import 'package:fluttertoast/fluttertoast.dart';
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -32,7 +32,9 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     getDeviceInfo();
+    onNativeCall();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,6 +52,28 @@ class _MyHomePageState extends State<MyHomePage> {
     String info = await NativeBridge.getDeviceInfo();
     setState(() {
       deviceInfo = info;
+    });
+  }
+
+  void onNativeCall() async {
+    NativeBridge.channel.setMethodCallHandler((call) async {
+      Fluttertoast.showToast(
+        msg: "method name: ${call.method}",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity:
+        ToastGravity.CENTER, // 位置：TOP、CENTER、BOTTOM
+      );
+      switch (call.method) {
+        case 'getPageName':
+          // 获取 Android 传递的参数（可选）
+          String? param = call.arguments["platform"];
+          // 执行业务逻辑
+          String result = "$param:MyHomePage";
+          // 返回结果给 Android（可选）
+          return result;
+        default:
+          print('unknown method');
+      }
     });
   }
 }
